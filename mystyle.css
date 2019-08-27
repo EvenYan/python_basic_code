@@ -1,0 +1,26 @@
+a {
+    color: red;
+    font-size: 20px
+  }
+
+
+.head2{
+    color: green!important;
+    
+}
+
+#head2{
+    color: yellow;
+}
+
+#head3{
+    color: blue;
+}
+
+#div1 > h4{
+    color:pink;
+}
+
+#div1 + div{
+    font-size: 100px;
+}

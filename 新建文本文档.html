@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>HTML练习</title>
+<link rel="stylesheet" href="mystyle.css">
+<script src="myjs.js"></script>
+</head>
+<body>
+  <div>
+    !important > id > class > tag
+  </div>
+  <h1 id="top">这是一级标题</h1>
+  <h2 class="head2" id="head2">这是二级标题</h2>
+  <h3 id="head3">这是三级标题</h3>
+
+  <div id="div1" style="background-color: rgb(255, 100, 0)">
+      <h4 onclick="print()">这是四级标题</h4>
+    <div>
+        <h4>这是四级标题</h4>
+    </div>
+    
+  </div>
+  
+  <div id="div2" style="margin: 10px 20px 30px;border:5px solid red; padding:20px">
+    div2
+  </div>
+
+  <p style="color: red; font-size: 50px; font-family:'Times New Roman', Times, serif">我是第一段</p>
+  <p style="text-indent: 50px; text-align:center">我是第二段</p>
+
+  <a href="https://www.baidu.com" target="_blank" title="搜索">百度一下</a>
+
+  <a href="#top">回到顶部</a>
+  <img src="img1.jpg" alt="img1">
+<br>
+<br>
+  <form action="/save_user" method="post">
+    姓名：<input type="text" name="username" id="username"> <br>
+    密码：<input type="password" name="passwd" id="passwd"> <br>
+    性别： 男<input type="radio" name="sex" id="sex" value="男"> 女<input type="radio" name="sex" id="sex"> <br>
+    兴趣： 阅读：<input type="checkbox" name="hobby" id="hobby">阅读：<input type="checkbox" name="hobby" id="hobby">阅读：<input type="checkbox" name="hobby" id="hobby">阅读：<input type="checkbox" name="hobby" id="hobby"> <br>
+    <input type="submit" value="注册">
+  </form>
+
+  <input type="submit" value="创建p标签" onclick="create_node()">
+
+  <div id="div3"></div>
+
+<script>
+
+  function create_node(){
+    var div3 = document.getElementById("div3");
+    console.log(div1);
+    var para = document.createElement("p");
+    console.log(para);
+    var content = document.createTextNode("这是js创建的文本");
+    para.appendChild(content);
+    console.log(para);
+    div3.appendChild(para);
+  }
+
+  
+</script>
+</body>
+</html>

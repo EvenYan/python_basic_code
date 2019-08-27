@@ -1,0 +1,3 @@
+
+string = "abc"
+string = "bcd"

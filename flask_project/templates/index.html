@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/jquery/1.12.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/echarts/4.2.1-rc.3/echarts.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+    <button onclick="get_bar(this)">获取图表</button>
+    <div id="main" style="width: 600px;height:500px;"></div>
+
+
+    <script type="text/javascript">
+        function get_bar(e) {
+            // 基于准备好的dom，初始化echarts实例
+            var myChart = echarts.init(document.getElementById('main'));
+
+            var car_list;
+            var num_list;
+
+            $.ajax({
+                url: '/get_data',
+                type: 'get',
+                dataType: 'json',
+                success: function (data) {
+                    // todo
+                    console.log(data);
+                    car_list = data.car_list;
+                    num_list = data.sale_list;
+
+                    // 指定图表的配置项和数据
+                    var option = {
+                        title: {
+                            text: 'ECharts 入门示例'
+                        },
+                        tooltip: {},
+                        legend: {
+                            data: ['销量']
+                        },
+                        xAxis: {
+                            data: car_list,
+                            axisLabel: {
+                                formatter: function (value) {
+                                    return value.split("").join("\n")
+                                }
+                            }
+                        },
+                        yAxis: {},
+                        series: [{
+                            name: '销量',
+                            type: 'bar',
+                            data: num_list
+                        }]
+                    };
+
+                    // 使用刚指定的配置项和数据显示图表。
+                    myChart.setOption(option);
+                },
+                error: function (data) {
+                    alert('Ajax请求失败！');
+                },
+            });
+        }
+
+        $.ajax({
+            url: '/get_data',
+            type: 'get',
+            dataType: 'json',
+            success:function (data) {
+                // todo
+                
+
+            },
+            error:function (data) {
+                alert('Ajax请求失败！');
+            },
+        });
+
+    </script>
+
+</body>
+
+</html>

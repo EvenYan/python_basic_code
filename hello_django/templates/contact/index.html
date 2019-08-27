@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>首页</title>
+</head>
+<body>
+
+    <h1 style="color:red">欢迎来到首页</h1>
+
+    <ul>
+        
+        {% for people in people_list %}
+            <li><a href="/contact/detail/{{ people.id }}">{{ people.name }}</a></li>
+    {% endfor %}
+    </ul>
+
+    <a href="/contact/add_people"><input type="submit" value="新增人员"></a>
+
+
+    
+</body>
+</html>
